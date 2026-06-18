@@ -170,7 +170,7 @@ export async function getPrenotazioni(lang: Locale) {
       title: pick(c?.closingTitle, getDict(lang).home.closing.title),
       body: pick(c?.closingBody, getDict(lang).home.closing.body)
     },
-    faq: pick(faqDocs, f.faq)
+    faq: pick(faqDocs, getDict(lang).faq)
   };
 }
 
