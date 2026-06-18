@@ -137,12 +137,11 @@ export async function getGalleria(lang: Locale) {
   const f = getDict(lang).galleria;
   const c = await cmsPage("galleria", lang);
   const raw = await sanityFetch<{ alt: string; caption?: string; category?: string; image: unknown }[]>(galleryQuery, {});
-  const images: GalleryItem[] = (raw ?? [])
-    .map((r) => {
-      const url = urlForImage(r.image as never);
-      return url ? { url, alt: r.alt, caption: r.caption, category: r.category ?? "interni" } : null;
-    })
-    .filter((x): x is GalleryItem => x !== null);
+  const images: GalleryItem[] = [];
+  for (const r of raw ?? []) {
+    const url = urlForImage(r.image as never);
+    if (url) images.push({ url, alt: r.alt, caption: r.caption, category: r.category ?? "interni" });
+  }
   return {
     seoTitle: pick(c?.seoTitle, f.seoTitle),
     seoDescription: pick(c?.seoDescription, f.seoDescription),
