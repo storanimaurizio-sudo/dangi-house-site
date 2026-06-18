@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="DangiHouse">
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A8FA8"/>
+      <stop offset="1" stop-color="#0E4A5A"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="#F3ECDD"/>
+  <g fill="none" stroke="#0E4A5A" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="150,250 256,150 362,250"/>
+    <line x1="178" y1="244" x2="178" y2="322"/>
+    <line x1="334" y1="244" x2="334" y2="322"/>
+    <rect x="232" y="276" width="48" height="46" rx="6"/>
+  </g>
+  <path d="M150 344 q26.5 -26 53 0 t53 0 t53 0 t53 0" fill="none"
+        stroke="url(#sea)" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="338" cy="184" r="16" fill="#E2A06A"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 300" role="img" aria-label="DangiHouse — San Salvo Marina">
+  <g transform="translate(108 16)">
+    <rect width="144" height="144" rx="32" fill="none" stroke="#3D8FA3" stroke-width="2.5"/>
+    <g fill="none" stroke="#F3ECDD" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="42,70 72,42 102,70"/>
+      <line x1="50" y1="68" x2="50" y2="90"/>
+      <line x1="94" y1="68" x2="94" y2="90"/>
+      <rect x="65" y="77" width="14" height="13" rx="2"/>
+    </g>
+    <path d="M42 96 q7.5 -7.3 15 0 t15 0 t15 0 t15 0" fill="none" stroke="#6FC2D6" stroke-width="6.4" stroke-linecap="round"/>
+    <circle cx="95" cy="52" r="4.6" fill="#E2A06A"/>
+  </g>
+  <text x="180" y="208" text-anchor="middle" font-family="'Poppins','Helvetica Neue',Arial,sans-serif" font-size="44" letter-spacing="0.5">
+    <tspan fill="#F3ECDD" font-weight="600">Dangi</tspan><tspan fill="#9FD4E0" font-weight="300">House</tspan>
+  </text>
+  <text x="180" y="240" text-anchor="middle" font-family="'Poppins','Helvetica Neue',Arial,sans-serif" font-size="13.5" letter-spacing="4.2" fill="#C9B891" font-weight="500">SAN SALVO MARINA · ABRUZZO</text>
+</svg>

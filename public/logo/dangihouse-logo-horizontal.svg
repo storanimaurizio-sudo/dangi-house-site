@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" role="img" aria-label="DangiHouse">
+  <defs>
+    <linearGradient id="seaH" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A8FA8"/>
+      <stop offset="1" stop-color="#0E4A5A"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(24 18)">
+    <rect width="144" height="144" rx="32" fill="#F3ECDD"/>
+    <g fill="none" stroke="#0E4A5A" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="42,70 72,42 102,70"/>
+      <line x1="50" y1="68" x2="50" y2="90"/>
+      <line x1="94" y1="68" x2="94" y2="90"/>
+      <rect x="65" y="77" width="14" height="13" rx="2"/>
+    </g>
+    <path d="M42 96 q7.5 -7.3 15 0 t15 0 t15 0 t15 0" fill="none" stroke="url(#seaH)" stroke-width="6.4" stroke-linecap="round"/>
+    <circle cx="95" cy="52" r="4.6" fill="#E2A06A"/>
+  </g>
+  <text x="196" y="92" font-family="'Poppins','Helvetica Neue',Arial,sans-serif" font-size="54" letter-spacing="0.5">
+    <tspan fill="#0E4A5A" font-weight="600">Dangi</tspan><tspan fill="#1B6E8C" font-weight="300">House</tspan>
+  </text>
+  <text x="198" y="126" font-family="'Poppins','Helvetica Neue',Arial,sans-serif" font-size="15" letter-spacing="5" fill="#8A7A5C" font-weight="500">SAN SALVO MARINA · ABRUZZO</text>
+</svg>
