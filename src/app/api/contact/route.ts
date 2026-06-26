@@ -30,7 +30,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Invalid email" }, { status: 422 });
   }
 
-  const to = process.env.CONTACT_TO_EMAIL || "coldan1972@yahoo.it";
+  const to = process.env.CONTACT_TO_EMAIL || "info@dangihouse.it";
   const resendKey = process.env.RESEND_API_KEY;
 
   const subject = `DangiHouse — richiesta da ${body.name}`;

@@ -2,22 +2,21 @@
 import { useState } from "react";
 import Image from "next/image";
 
-type Cat = { label: string; key: string };
-type Img = { url: string; alt: string; caption?: string; category: string };
+type Group = { slug: string; label: string; images: string[] };
 
-// Galleria con filtri per categoria.
-// Se arrivano immagini dal CMS (Sanity) le mostra; altrimenti placeholder.
-export function Gallery({ categories, images = [] }: { categories: Cat[]; images?: Img[] }) {
+// Galleria divisa per appartamento. Le immagini sono servite da /public.
+export function Gallery({ groups, allLabel = "Tutte" }: { groups: Group[]; allLabel?: string }) {
   const [active, setActive] = useState<string>("all");
-  const hasImages = images.length > 0;
+  const visible = active === "all" ? groups : groups.filter((g) => g.slug === active);
+  const total = groups.reduce((n, g) => n + g.images.length, 0);
 
-  const placeholders = Array.from({ length: 8 }).map((_, i) => ({
-    category: categories[i % categories.length]?.key ?? "interni"
-  }));
-
-  const sourceCats = hasImages ? images.map((i) => i.category) : placeholders.map((p) => p.category);
-  const visibleImages = active === "all" ? images : images.filter((i) => i.category === active);
-  const visiblePlaceholders = active === "all" ? placeholders : placeholders.filter((p) => p.category === active);
+  if (total === 0) {
+    return (
+      <p className="text-sm text-sea-600/60">
+        Le foto verranno pubblicate a breve.
+      </p>
+    );
+  }
 
   return (
     <div>
@@ -26,50 +25,39 @@ export function Gallery({ categories, images = [] }: { categories: Cat[]; images
           onClick={() => setActive("all")}
           className={`rounded-full px-4 py-1.5 text-sm ${active === "all" ? "bg-sea-600 text-white" : "bg-sand-100 text-sea-600"}`}
         >
-          Tutte / All
+          {allLabel}
         </button>
-        {categories.map((c) => (
+        {groups.map((g) => (
           <button
-            key={c.key}
-            onClick={() => setActive(c.key)}
-            className={`rounded-full px-4 py-1.5 text-sm ${active === c.key ? "bg-sea-600 text-white" : "bg-sand-100 text-sea-600"}`}
+            key={g.slug}
+            onClick={() => setActive(g.slug)}
+            className={`rounded-full px-4 py-1.5 text-sm ${active === g.slug ? "bg-sea-600 text-white" : "bg-sand-100 text-sea-600"}`}
           >
-            {c.label}
+            {g.label}
           </button>
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        {hasImages
-          ? visibleImages.map((img, i) => (
-              <figure key={i} className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-sand-200">
-                <Image
-                  src={img.url}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                {img.caption && (
-                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-sea-700/70 to-transparent p-3 text-xs text-white">
-                    {img.caption}
-                  </figcaption>
-                )}
-              </figure>
-            ))
-          : visiblePlaceholders.map((p, i) => (
-              <div key={i} className="aspect-[4/5] overflow-hidden rounded-xl bg-gradient-to-br from-sand-200 to-sea-400/30">
-                <div className="flex h-full items-center justify-center text-xs uppercase tracking-widest text-sea-600/50">
-                  {p.category}
+      <div className="space-y-12">
+        {visible.map((g) => (
+          <section key={g.slug}>
+            <h3 className="mb-5 font-serif text-2xl text-sea-700">{g.label}</h3>
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+              {g.images.map((src, i) => (
+                <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-xl bg-sand-200">
+                  <Image
+                    src={src}
+                    alt={`${g.label} — foto ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
-      {!hasImages && (
-        <p className="mt-6 text-center text-sm text-sea-600/60">
-          {sourceCats.length ? "" : ""}Carica le foto nello Studio CMS (/studio) per popolare la galleria.
-        </p>
-      )}
     </div>
   );
 }

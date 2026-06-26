@@ -36,6 +36,17 @@ export default async function PosizionePage({ params }: { params: { lang: Locale
           </div>
         </div>
       </Section>
+
+      <Section title={d.molise.title} intro={d.molise.intro} muted>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {d.molise.spots.map((p) => (
+            <div key={p.name} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-sand-200">
+              <h3 className="font-serif text-lg text-sea-700">{p.name}</h3>
+              <p className="mt-2 text-sm text-sea-600/80">{p.detail}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
     </>
   );
 }

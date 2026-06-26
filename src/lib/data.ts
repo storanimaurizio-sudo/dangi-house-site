@@ -128,7 +128,8 @@ export async function getPosizione(lang: Locale) {
     h1: pick(c?.heroTitle, f.h1),
     heroSubtitle: pick(c?.heroSubtitle, f.heroSubtitle),
     intro: pick(c?.intro, f.intro),
-    places: pick(c?.places, f.places)
+    places: pick(c?.places, f.places),
+    molise: f.molise
   };
 }
 

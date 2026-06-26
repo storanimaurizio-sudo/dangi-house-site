@@ -17,8 +17,9 @@ export function Logo({
       : variant === "mark"
       ? "/logo/dangihouse-mark.svg"
       : "/logo/dangihouse-logo-horizontal.svg";
-  const w = variant === "mark" ? 48 : variant === "stacked" ? 200 : 220;
-  const h = variant === "mark" ? 48 : variant === "stacked" ? 167 : 62;
+  const isStack = variant === "stacked" || variant === "dark";
+  const w = variant === "mark" ? 48 : isStack ? 240 : 220;
+  const h = variant === "mark" ? 48 : isStack ? 150 : 62;
   return (
     <Image
       src={src}

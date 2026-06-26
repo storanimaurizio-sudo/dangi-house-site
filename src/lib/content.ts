@@ -7,7 +7,7 @@ import type { Locale } from "./i18n";
 export const site = {
   name: "DangiHouse",
   location: "San Salvo Marina (CH), Abruzzo",
-  email: "coldan1972@yahoo.it",
+  email: "info@dangihouse.it",
   phone: "+39 333 844 0088",
   whatsapp: "+393338440088",
   address: "San Salvo Marina, 66050 (CH), Italia",
@@ -52,7 +52,7 @@ type Dict = {
   };
   laCasa: PageCopy;
   servizi: PageCopy & { groups: { title: string; items: string[] }[] };
-  posizione: PageCopy & { places: { name: string; detail: string }[] };
+  posizione: PageCopy & { places: { name: string; detail: string }[]; molise: { title: string; intro: string; spots: { name: string; detail: string }[] } };
   galleria: PageCopy & { categories: { key: string; label: string }[] };
   prenotazioni: PageCopy & {
     steps: { title: string; body: string }[];
@@ -142,7 +142,7 @@ const it: Dict = {
     intro: "Abbiamo raccolto i servizi pensando alla praticità: quello che rende un soggiorno comodo, senza complicazioni.",
     groups: [
       { title: "Comfort", items: ["Aria condizionata", "Wi-Fi gratuito", "Biancheria e asciugamani", "Pulizia finale inclusa"] },
-      { title: "Cucina", items: ["Cucina attrezzata", "Frigorifero e congelatore", "Macchina del caffè", "Stoviglie complete"] },
+      { title: "Cucina", items: ["Cucina attrezzata", "Frigorifero e congelatore", "Moka", "Stoviglie complete"] },
       { title: "Esterni & mobilità", items: ["Parcheggio", "Spazio esterno", "Spiaggia a piedi", "Animali su richiesta"] }
     ]
   },
@@ -159,7 +159,17 @@ const it: Dict = {
       { name: "Costa dei Trabocchi", detail: "In auto — la celebre via ciclabile e i trabocchi sull'Adriatico." },
       { name: "Vasto", detail: "In auto — centro storico, ristoranti e servizi." },
       { name: "Termoli", detail: "In auto — borgo sul mare e porto verso le Isole Tremiti." }
-    ]
+    ],
+    molise: {
+      title: "Il Molise a un passo",
+      intro: "Oltre il confine, a pochi minuti, comincia il Molise: borghi silenziosi, mare e piccole mete da scoprire senza fretta.",
+      spots: [
+        { name: "Isole Tremiti", detail: "Arcipelago nell'Adriatico, in traghetto da Termoli o Vasto." },
+        { name: "Larino", detail: "Anfiteatro romano e centro storico, nell'entroterra." },
+        { name: "Agnone", detail: "L'antica arte delle campane, tra le montagne molisane." },
+        { name: "Pietrabbondante", detail: "Il teatro sannitico, sito archeologico tra i monti." }
+      ]
+    }
   },
   galleria: {
     seoTitle: "Galleria — DangiHouse, San Salvo Marina",
@@ -289,7 +299,7 @@ const en: Dict = {
     intro: "We chose services with practicality in mind: what makes a stay comfortable, without fuss.",
     groups: [
       { title: "Comfort", items: ["Air conditioning", "Free Wi-Fi", "Linen and towels", "Final cleaning included"] },
-      { title: "Kitchen", items: ["Equipped kitchen", "Fridge and freezer", "Coffee machine", "Complete tableware"] },
+      { title: "Kitchen", items: ["Equipped kitchen", "Fridge and freezer", "Moka pot", "Complete tableware"] },
       { title: "Outdoor & mobility", items: ["Parking", "Outdoor space", "Beach on foot", "Pets on request"] }
     ]
   },
@@ -306,7 +316,17 @@ const en: Dict = {
       { name: "Trabocchi Coast", detail: "By car — the famous cycle path and the trabocchi on the Adriatic." },
       { name: "Vasto", detail: "By car — old town, restaurants and services." },
       { name: "Termoli", detail: "By car — seaside village and port to the Tremiti Islands." }
-    ]
+    ],
+    molise: {
+      title: "Molise, a step away",
+      intro: "Just beyond the border, minutes away, Molise begins: quiet villages, sea and small places to discover slowly.",
+      spots: [
+        { name: "Tremiti Islands", detail: "An Adriatic archipelago, by ferry from Termoli or Vasto." },
+        { name: "Larino", detail: "Roman amphitheatre and old town, inland." },
+        { name: "Agnone", detail: "The ancient art of bell-making, in the Molise mountains." },
+        { name: "Pietrabbondante", detail: "The Samnite theatre, an archaeological site among the hills." }
+      ]
+    }
   },
   galleria: {
     seoTitle: "Gallery — DangiHouse, San Salvo Marina",
