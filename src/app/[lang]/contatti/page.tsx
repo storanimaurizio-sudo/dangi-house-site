@@ -21,7 +21,7 @@ export default async function ContattiPage({ params }: { params: { lang: Locale 
       <Hero title={d.h1} subtitle={d.heroSubtitle} />
       <Section intro={d.intro}>
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
-          <ContactForm locale={lang} />
+          <ContactForm locale={lang} toEmail={site.email} />
           <aside className="space-y-6">
             <div className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-sand-200">
               <h3 className="font-serif text-xl text-sea-700">{site.name}</h3>
